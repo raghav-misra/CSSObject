@@ -1,19 +1,31 @@
-const test = css("*", {
-  "padding": 0,
-  "margin": 0,
-  "font-size": 12
-}).css("h1", {
-  "color": "cornflowerblue"
-}).toElement();
-
-const test2 = css(
-  "h1", {
-    "color": "purple"
-  }).css(
-  "p", {
-    
+const style = css(
+  "*", {
+    "padding": 0,
+    "margin": 0,
+    "box-sizing": "border-box",
+    "text-align": "center",
+    "font-family": "sans-serif"
   }
-);
+).css(
+  "header", {
+    "background": "cornflowerblue",
+    "color": "white",
+    "padding": "10px"
+  }
+).css(
+  "body", {
+    "background": "royalblue",
+    "height": "100vh"
+  }  
+).css(
+  "p", {
+    "color": "royalblue",
+    "font-size": "20px"  
+  }
+).css(
+  "*:not(html):not(body)", {
+    "margin": "5px;"
+  }
+).toElement();
 
-document.body.appendChild(test);
-document.body.innerText += test2.toString();
+document.body.appendChild(style);
