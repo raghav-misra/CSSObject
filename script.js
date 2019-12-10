@@ -1,30 +1,19 @@
-function CSS(selector, stylesheet){
-  // Check if tagged-template is used:
-  const sel = 
-    Array.isArray(selector) ? selector[0] : selector;
+const test = css("*", {
+  "padding": 0,
+  "margin": 0,
+  "font-size": 12
+}).css("h1", {
+  "color": "cornflowerblue"
+}).toElement();
 
-  // Add selector
-  let cssString = `${sel.trim()}{`;
-  
-  Object.keys(stylesheet).forEach((k) => {
-    if(stylesheet.hasOwnProperty(k)){
-      const style = `${k.trim()}:${stylesheet[k].trim()};`;
-      cssString += style;
-    }
-  });
-  cssString += "}";
-
-  return cssString;
-}
-
-console.log(CSS(
-  "#test", {
-    "background": "none"
+const test2 = css(
+  "h1", {
+    "color": "purple"
+  }).css(
+  "p", {
+    
   }
-));
+);
 
-console.log(CSS`#title ${{
-  "background": "none",
-  "color": "red",
-  "--css-var": "100%"
-}}`);
+document.body.appendChild(test);
+document.body.innerText += test2.toString();
