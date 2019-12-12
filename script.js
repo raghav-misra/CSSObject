@@ -1,4 +1,7 @@
-function ce(tag, attrs = {}, ...kids){
+// Feather Icons:
+feather.replace();
+
+function createElement(tag, attrs = {}, ...kids){
   // Create Element
   const el = document.createElement(tag);
 
